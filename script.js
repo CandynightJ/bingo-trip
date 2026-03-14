@@ -144,12 +144,18 @@ function checkBingo()
         {
             lineAchieved = true;
             score += 10;
+            showMessage("LINE!");
             line.forEach(index => {
                 board.children[index].classList.add("ring-4", "ring-yellow-400");
                 board.children[index].classList.remove("border-2");
             });
 
-            showMessage("LINE!");
+            setTimeout(() => {
+                line.forEach(index => {
+                    board.children[index].classList.remove("ring-4", "ring-yellow-400");
+                    board.children[index].classList.add("border-2");
+                });
+            }, 2000)
         }
     }
 
