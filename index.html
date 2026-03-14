@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Trip</title>
+    <meta name="description" content="Don't die of boredom on your trip! With this bingo, you'll not only have fun, but also look at the real world instead of your phone.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!--link rel="icon" href="img/" type="image/png"-->
+</head>
+<body>
+    <div class="max-w-xl mx-auto px-4 py-6">
+        <div class="start-screen" id="start-screen">
+            <h1 class="text-4xl font-bold my-2">Bingo Trip!</h1>
+            <p class="text-gray-600 max-w-md mx-auto my-2">Stuck on a bus? Look around and complete the board</p>
+            <button type="button" onclick="makeBusList()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition active:scale-95 my-2">Play!</button>
+        </div>
+        <div class="game-screen max-w-sm mx-auto hidden" id="game-screen">
+            <div class="sticky top-0 bg-white border-b shadow-sm p-3 text-center font-bold z-10" id="score-bar">
+                Score: <span id="score">0</span>
+            </div>
+            <div class="hidden text-center text-4xl font-bold my-6" id="big-message"></div>
+            <div class="bingo-board grid grid-cols-5 gap-2 my-5 w-full" id="bingo-board"></div>
+            <div class="legend grid grid-cols-1 gap-2 mt-4" id="legend"></div>
+            <button type="button" onclick="goToStartScreen()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition active:scale-95 my-4">Go back</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
