@@ -108,6 +108,7 @@ function makeBingo(bingoEvents)
     bingoAchieved = false;
 
     updateScore();
+    let legendList = [];
 
     bingoEvents.forEach((event, index) => {
         const cell = document.createElement("div");
@@ -117,11 +118,12 @@ function makeBingo(bingoEvents)
         cell.addEventListener("click", () => {
             boardState[index] = !boardState[index];
             cell.classList.toggle("bg-green-300");
+            legendList[index].classList.toggle("bg-green-400")
             checkBingo();
         });
     });
 
-    bingoEvents.forEach(event => {
+    bingoEvents.forEach((event, index) => {
         const line = document.createElement("div");
         line.className = "flex items-center gap-2 p-2 bg-gray-100 rounded text-sm";
         line.innerHTML = `
@@ -129,6 +131,7 @@ function makeBingo(bingoEvents)
         <span class="leading-tight">${event.text}</span>
         `;
         legend.appendChild(line);
+        legendList[index] = line;
     })
 }
 
