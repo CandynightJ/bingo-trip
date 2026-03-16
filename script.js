@@ -134,29 +134,28 @@ function makeBingo(bingoEvents)
 
 function checkBingo()
 {
-    if(!lineAchieved) 
+    const completedLines = winningLines.filter(line =>
+        line.every(index => boardState[index])
+    );
+
+    score = completedLines.length * 10;
+
+    if(!lineAchieved && completedLines.length > 0)
     {
-        const line = winningLines.find(line =>
-            line.every(index => boardState[index])
-        );
+        lineAchieved = true;
+        showMessage("LINE!");
 
-        if(line)
-        {
-            lineAchieved = true;
-            score += 10;
-            showMessage("LINE!");
-            line.forEach(index => {
-                board.children[index].classList.add("ring-4", "ring-yellow-400");
-                board.children[index].classList.remove("border-2");
+        const firstLine = completedLines[0];
+
+        firstLine.forEach(index => {
+            board.children[index].classList.add("ring-4","ring-yellow-400");
+        });
+
+        setTimeout(() => {
+            firstLine.forEach(index => {
+                board.children[index].classList.remove("ring-4","ring-yellow-400");
             });
-
-            setTimeout(() => {
-                line.forEach(index => {
-                    board.children[index].classList.remove("ring-4", "ring-yellow-400");
-                    board.children[index].classList.add("border-2");
-                });
-            }, 2000)
-        }
+        },2000);
     }
 
     if(!bingoAchieved && boardState.every(cell => cell))
@@ -165,7 +164,7 @@ function checkBingo()
         score += 50;
         showMessage("BINGO!");
     }
-    
+
     updateScore();
 }
 
@@ -189,5 +188,3 @@ function goToStartScreen()
     gameScreen.classList.add("hidden");
     startScreen.classList.remove("hidden");
 }
-
-// si le pongo block si aparece
