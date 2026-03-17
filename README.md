@@ -12,3 +12,6 @@ The whole board (bingo) gives you 50 points!
 
 ## Tools
 This project was made with HTML, javascript and TailwindCSS
+
+## Use of AI
+I didn't use AI for anything specific, but I did use it to debug and to find rapidly some Tailwind
