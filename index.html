@@ -7,23 +7,27 @@
     <meta name="description" content="Don't die of boredom on your trip! With this bingo, you'll not only have fun, but also look at the real world instead of your phone.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <!--link rel="icon" href="img/" type="image/png"-->
 </head>
 <body>
-    <div class="max-w-xl mx-auto px-4 py-6">
-        <div class="start-screen" id="start-screen">
-            <h1 class="text-4xl font-bold my-2">Bingo Trip!</h1>
-            <p class="text-gray-600 max-w-md mx-auto my-2">Stuck on a bus? Look around and complete the board</p>
-            <button type="button" onclick="makeBusList()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition active:scale-95 my-2">Play!</button>
+        <div class="min-h-screen bg-[url('https://img.freepik.com/foto-gratis/paisaje-urbano-wuxi_1127-3917.jpg?t=st=1773706719~exp=1773710319~hmac=c93cd5c570e36c199cfd2a45beb9c04568d93ac6494a948fd2f190c67483c5eb&w=1480')] start-screen text-center flex flex-col items-center justify-center min-h-screen" id="start-screen">
+            <div class="bg-white/70 backdrop-blur-md p-8 rounded-3xl shadow-xl text-center">
+                <h1 class="text-4xl font-bold my-2">Bingo Trip!</h1>
+                <p class="text-gray-600 max-w-md mx-auto my-2">Stuck on a bus? Look around and complete the board</p>
+                <button type="button" onclick="makeBusList()" class="bg-[#77A6B6] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition active:scale-95 my-2">Play!</button>
+            </div>
         </div>
-        <div class="game-screen max-w-sm mx-auto hidden" id="game-screen">
-            <div class="sticky top-0 bg-white border-b shadow-sm p-3 text-center font-bold z-10" id="score-bar">
+        <div class="game-screen max-w-sm px-6 py-6 mx-auto hidden bg-[#d0efb1]" id="game-screen">
+            <div class="sticky top-0 bg-[#9DC3C2] shadow-sm p-3 text-center font-bold z-10" id="score-bar">
                 Score: <span id="score">0</span>
             </div>
-            <div class="hidden text-center text-4xl font-bold my-6" id="big-message"></div>
+            <div class="hidden fixed inset-0 flex items-center justify-center pointer-events-none" id="message-c">
+                <div class="message-text bg-[#9DC3C2]/90 text-[#4d7298] text-8xl md:text-9xl px-12 py-8 rounded-3xl shadow-2xl text-center" id="big-message">LINE</div>
+            </div>
             <div class="bingo-board grid grid-cols-5 gap-2 my-5 w-full" id="bingo-board"></div>
             <div class="legend grid grid-cols-1 gap-2 mt-4" id="legend"></div>
-            <button type="button" onclick="goToStartScreen()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition active:scale-95 my-4">Go back</button>
+            <button type="button" onclick="goToStartScreen()" class="bg-[#77A6B6] hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition active:scale-95 my-4">Go back</button>
         </div>
     </div>
     <script src="script.js"></script>

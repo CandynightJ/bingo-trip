@@ -1,11 +1,10 @@
-console.log("script loaded");
-
 const board = document.getElementById("bingo-board");
 const legend = document.getElementById("legend");
 const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
-const message = document.getElementById("big-message");
+const messageC = document.getElementById("message-c");
 const scoreText = document.getElementById("score");
+const message = document.getElementById("big-message");
 
 let boardState = [];
 let score = 0;
@@ -113,19 +112,19 @@ function makeBingo(bingoEvents)
     bingoEvents.forEach((event, index) => {
         const cell = document.createElement("div");
         cell.textContent = event.emoji;
-        cell.className = "flex items-center justify-center text-3xl border-2 rounded h-16 aspect-square cursor-pointer";
+        cell.className = "flex items-center justify-center text-3xl rounded h-16 aspect-square cursor-pointer bg-[#B3D89C]";
         board.appendChild(cell);
         cell.addEventListener("click", () => {
             boardState[index] = !boardState[index];
-            cell.classList.toggle("bg-green-300");
-            legendList[index].classList.toggle("bg-green-400")
+            cell.classList.toggle("bg-[#4d7298]");
+            legendList[index].classList.toggle("bg-[#4d7298]")
             checkBingo();
         });
     });
 
     bingoEvents.forEach((event, index) => {
         const line = document.createElement("div");
-        line.className = "flex items-center gap-2 p-2 bg-gray-100 rounded text-sm";
+        line.className = "flex items-center gap-2 p-2 bg-[#B3D89C] rounded text-sm";
         line.innerHTML = `
         <span class="text-lg">${event.emoji}</span>
         <span class="leading-tight">${event.text}</span>
@@ -174,10 +173,10 @@ function checkBingo()
 function showMessage(text)
 {
     message.textContent = text;
-    message.classList.remove("hidden");
+    messageC.classList.remove("hidden");
 
     setTimeout(() => {
-        message.classList.add("hidden");
+        messageC.classList.add("hidden");
     }, 2000);
 }
 
